@@ -44,7 +44,6 @@ class topArtists extends Component {
         params: { time_range: timeRangeParam }
       })
         .then(res => {
-          console.log(res);
           this.setState({ loading: false, artists: res.data.items });
         })
         .catch(error => {
