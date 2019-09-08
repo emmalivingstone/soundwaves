@@ -1,6 +1,7 @@
 .collection-grid {
   padding: 7rem 10rem;
   display: grid;
+  grid-auto-rows: 1fr;
   grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
   grid-column-gap: 5rem;
   row-gap: 5rem;

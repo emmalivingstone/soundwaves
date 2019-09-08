@@ -13,7 +13,7 @@ function login() {
   return (
     <React.Fragment>
       {hash.access_token ? (
-        <Redirect to="/top-tracks-all-time" />
+        <Redirect noThrow to="/top-tracks/all-time" />
       ) : (
         <div className="login">
           <div className="login__box">
@@ -21,7 +21,7 @@ function login() {
               sound<span className="site-logo__waves">waves</span>
             </h1>
             <p className="login__description">
-              Check out your top artists and tracks for different time periods.
+              Check out your top artists and tracks for different time ranges.
             </p>
             <a
               className="btn btn--primary"
