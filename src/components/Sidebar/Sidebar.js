@@ -12,7 +12,7 @@ const Sidebar = () => {
       </div>
       <div className="sidebar__content">
         <div className="sidebar__sublist">
-          <h2 className="sidebar__sublist-title">Your Listening Habits</h2>
+          <h2 className="sidebar__sublist-title">Listening Statistics</h2>
           <ul className="sidebar__sublist-items">
             <li className="sidebar__sublist-item">
               <Link to="/top-tracks/all-time">
