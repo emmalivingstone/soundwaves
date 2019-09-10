@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Soundwaves",
+  "name": "Check out your top artists and tracks for different time ranges",
   "icons": [
     {
       "src": "favicon.ico",

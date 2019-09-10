@@ -13,7 +13,7 @@ function login() {
   return (
     <React.Fragment>
       {hash.access_token ? (
-        <Redirect noThrow to="/top-tracks/all-time" />
+        <Redirect noThrow to="top-tracks/all-time" />
       ) : (
         <div className="login">
           <div className="login__box">

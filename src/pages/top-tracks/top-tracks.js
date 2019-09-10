@@ -69,7 +69,7 @@ class topTracks extends Component {
             )}
           </Layout>
         ) : (
-          <Redirect noThrow to="/login"></Redirect>
+          <Redirect noThrow to="login"></Redirect>
         )}
       </React.Fragment>
     );
