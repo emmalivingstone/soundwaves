@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Layout from '../../components/Layout/Layout';
 import Track from '../../components/Track/Track';
 import hash from '../../shared/window-hash';
+import Loading from '../../components/Loading/Loading';
 
 class topTracks extends Component {
   constructor() {
@@ -58,7 +59,7 @@ class topTracks extends Component {
       <React.Fragment>
         {hash.access_token ? (
           <Layout>
-            {this.state.loading && <p>Loading</p>}
+            {this.state.loading && <Loading />}
             {this.state.error && <p>Error</p>}
             {!this.state.loading && !this.state.error && this.state.tracks && (
               <div className="collection-grid">

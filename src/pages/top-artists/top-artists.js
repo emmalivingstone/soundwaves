@@ -3,6 +3,7 @@ import Axios from 'axios';
 import React, { Component } from 'react';
 import Artist from '../../components/Artist/Artist';
 import Layout from '../../components/Layout/Layout';
+import Loading from '../../components/Loading/Loading';
 import hash from '../../shared/window-hash';
 
 class topArtists extends Component {
@@ -58,7 +59,7 @@ class topArtists extends Component {
       <React.Fragment>
         {hash.access_token ? (
           <Layout>
-            {this.state.loading && <p>Loading</p>}
+            {this.state.loading && <Loading />}
             {this.state.error && <p>Error</p>}
             {!this.state.loading && !this.state.error && this.state.artists && (
               <div className="collection-grid">
