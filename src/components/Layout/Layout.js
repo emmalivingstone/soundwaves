@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
-import './Layout.scss';
 
 const Layout = props => {
+  const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth > 900);
+
+  const onToggleSidebar = () => {
+    setSidebarOpen(isOpen => {
+      return !isOpen;
+    });
+  };
+
+  const onWindowResize = () => {
+    setSidebarOpen(window.innerWidth > 900);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', onWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', onWindowResize);
+    };
+  }, []);
+
   return (
     <div className="layout">
-      <Sidebar />
+      <Sidebar open={sidebarOpen} onToggleSidebar={onToggleSidebar} />
       <div className="layout__content">{props.children}</div>
     </div>
   );

@@ -1,5 +1,4 @@
 import React from 'react';
-import './Artist.scss';
 
 const Artist = ({ artist }) => (
   <div className="artist">

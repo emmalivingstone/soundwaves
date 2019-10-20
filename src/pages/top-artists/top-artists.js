@@ -7,9 +7,14 @@ import Loading from '../../components/Loading/Loading';
 import hash from '../../shared/window-hash';
 
 class topArtists extends Component {
-  constructor() {
-    super();
-    this.state = { artists: [], loading: true, error: null };
+  constructor(props) {
+    super(props);
+    this.state = {
+      artists: [],
+      loading: true,
+      error: null,
+      pageTitle: this.generatePageTitle()
+    };
   }
 
   componentDidMount() {
@@ -18,9 +23,32 @@ class topArtists extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.timeRange !== prevProps.timeRange) {
-      this.setState({ artists: [], loading: true, error: null });
+      this.setState({
+        artists: [],
+        loading: true,
+        error: null,
+        pageTitle: this.generatePageTitle()
+      });
       this.fetchTopArtists();
     }
+  }
+
+  generatePageTitle() {
+    let pageTitle;
+    switch (this.props.timeRange) {
+      case 'all-time':
+        pageTitle = 'Top Artists (all time)';
+        break;
+      case '6-months':
+        pageTitle = 'Top Artists (past 6 months)';
+        break;
+      case '4-weeks':
+        pageTitle = 'Top Artists (past 4 weeks)';
+        break;
+      default:
+        console.error('Top artists: Valid time range not specified.');
+    }
+    return pageTitle;
   }
 
   fetchTopArtists() {
@@ -59,6 +87,7 @@ class topArtists extends Component {
       <React.Fragment>
         {hash.access_token ? (
           <Layout>
+            <h1>{this.state.pageTitle}</h1>
             {this.state.loading && <Loading />}
             {this.state.error && <p>Error</p>}
             {!this.state.loading && !this.state.error && this.state.artists && (

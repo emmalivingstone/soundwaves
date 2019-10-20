@@ -7,7 +7,6 @@ import {
   scopes
 } from '../../shared/api-config';
 import hash from '../../shared/window-hash';
-import './login.scss';
 
 function login() {
   return (

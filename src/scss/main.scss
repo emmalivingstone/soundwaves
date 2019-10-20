@@ -6,3 +6,11 @@
 
 @import './blocks/collection-grid';
 @import './blocks/btn';
+
+@import '../components/Sidebar/Sidebar';
+@import '../components/Artist/Artist';
+@import '../components/Loading/Loading';
+@import '../components/Layout/Layout';
+@import '../components/Track/Track';
+
+@import '../pages/login/login';

@@ -1,3 +1,26 @@
+.sidebar-toggle {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  background: none;
+  border: none;
+  padding: 2rem;
+  font-size: 3rem;
+  cursor: pointer;
+  color: var(--sidebar-toggle-background);
+  display: none;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  @include respond(tab-port) {
+    display: block;
+  }
+}
+
 .sidebar {
   background-color: var(--sidebar-background-color);
   width: 28rem;
@@ -5,11 +28,28 @@
   overflow-y: auto;
   border-right: 1px solid hsla(0, 0%, 90%, 1);
 
+  @include respond(tab-port) {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    left: -28rem;
+    transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &--open {
+      left: 0;
+    }
+  }
+
   &__branding {
     height: 10rem;
     position: relative;
     padding: 0 2.5rem;
     margin-bottom: 0.5rem;
+
+    @include respond(tab-port) {
+      height: 8rem;
+      margin-top: 4rem;
+    }
   }
 
   &__home-link {
