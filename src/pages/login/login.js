@@ -9,6 +9,13 @@ import {
 import hash from '../../shared/window-hash';
 
 function login() {
+  const onTestClick = () => {
+    setTimeout(() => {
+      window.open('www.google.co.uk');
+    }, 1);
+    return true;
+  };
+
   return (
     <React.Fragment>
       {hash.access_token ? (
@@ -29,6 +36,14 @@ function login() {
               )}&response_type=token&show_dialog=true`}
             >
               Login with Spotify
+            </a>
+            <a
+              onClick={onTestClick}
+              href="www.google.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Test IOS Link
             </a>
           </div>
         </div>
